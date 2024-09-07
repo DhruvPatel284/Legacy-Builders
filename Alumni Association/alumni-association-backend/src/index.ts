@@ -10,14 +10,15 @@ app.use(cookieParser());
 app.use('/*',cors());
 
 
-import  userRouter  from './routes/user.routes';
+import userRouter  from './routes/user.routes';
 import eventRouter from './routes/events.routes';
-import jobPostingRouter from './routes/jobPostings.routes'
+import jobPostingRouter from './routes/jobPostings.routes';
+import success_storiesRouter from './routes/successStories.routes'
 
 app.use("/api/v1/users",userRouter);
 app.use('/api/v1/events', eventRouter);
 app.use("/api/v1/job-postings",jobPostingRouter);
-
+app.use("/api/v1/success-stories",success_storiesRouter);
 
 
 app.listen(PORT, () => {

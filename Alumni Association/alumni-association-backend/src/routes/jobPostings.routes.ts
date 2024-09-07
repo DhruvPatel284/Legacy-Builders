@@ -5,6 +5,9 @@ import { createJobPosting, getAllJobPostings, getJobPostingById } from "../contr
 const router = express.Router();
 
 router.route('/create').post(authenticateJWT, checkRole(['admin', 'alumni']), createJobPosting);
+router.route('/getAlljobPostings').get(getAllJobPostings);
+router.route('/getjobPosting/:id').get(getJobPostingById);
+
 
 
   

@@ -43,8 +43,6 @@ model Post {
   job_type      JobType? // For job postings (e.g., full-time, part-time)
   achievement   String?  // For success stories
   date          DateTime? // For success stories or events
-  event_id      String?  @unique @default(uuid())// For linking to an event
-  event         Event?   @relation(fields: [event_id], references: [id])
   created_at    DateTime @default(now())
   updated_at    DateTime @updatedAt
   comments      Comment[]
@@ -61,7 +59,6 @@ model Event {
   created_at  DateTime @default(now())
   updated_at  DateTime @updatedAt
   attendees   Attendee[]
-  post        Post?
 }
 
 model Comment {
