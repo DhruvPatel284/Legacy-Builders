@@ -1,19 +1,25 @@
 import express, { Application, Request, Response } from 'express';
+import  cors  from 'cors';
+import cookieParser from 'cookie-parser';
 
 const app: Application = express();
 const PORT = process.env.PORT || 5000;
 
-// Middleware to parse JSON bodies
 app.use(express.json());
+app.use(cookieParser());
+app.use('/*',cors());
 
-// Basic route
-app.get('/', (req: Request, res: Response) => {
-  res.send('Welcome to the Alumni Association API!');
-});
 
-app.post('/api/v1/signin')
+import  userRouter  from './routes/user.routes';
+import eventRouter from './routes/events.routes';
+import jobPostingRouter from './routes/jobPostings.routes'
 
-// Start the server
+app.use("/api/v1/users",userRouter);
+app.use('/api/v1/events', eventRouter);
+app.use("/api/v1/job-postings",jobPostingRouter);
+
+
+
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });

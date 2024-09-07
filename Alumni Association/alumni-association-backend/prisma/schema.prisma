@@ -1,0 +1,122 @@
+// Prisma schema file (schema.prisma)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql" // Or your database of choice
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id              String   @id @default(uuid())
+  name            String?
+  username        String   
+  email           String   @unique
+  password        String
+  profile_picture String?
+  role            Role
+  graduation_year Int?
+  course          String?
+  created_at      DateTime @default(now())
+  updated_at      DateTime @updatedAt
+  posts           Post[]
+  comments        Comment[]
+  events          Event[]
+  messagesSent    Message[] @relation("MessageSent")
+  messagesReceived Message[] @relation("MessageReceived")
+  attendees       Attendee[]
+}
+
+model Post {
+  id            String   @id @default(uuid())
+  content       String
+  image_url     String?
+  created_by    String
+  creator       User     @relation(fields: [created_by], references: [id])
+  post_type     PostType @default(GENERAL)
+  title         String?
+  company       String?  // For job postings and success stories
+  location      String?  // For job postings, success stories, and events
+  salary_range  String?  // For job postings
+  job_type      JobType? // For job postings (e.g., full-time, part-time)
+  achievement   String?  // For success stories
+  date          DateTime? // For success stories or events
+  event_id      String?  @unique @default(uuid())// For linking to an event
+  event         Event?   @relation(fields: [event_id], references: [id])
+  created_at    DateTime @default(now())
+  updated_at    DateTime @updatedAt
+  comments      Comment[]
+}
+
+model Event {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  date        DateTime
+  location    String
+  creatorId  String
+  creator     User     @relation(fields: [creatorId], references: [id])
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+  attendees   Attendee[]
+  post        Post?
+}
+
+model Comment {
+  id         String   @id @default(uuid())
+  post_id    String
+  post       Post     @relation(fields: [post_id], references: [id])
+  user_id    String
+  user       User     @relation(fields: [user_id], references: [id])
+  content    String
+  created_at DateTime @default(now())
+}
+
+model Message {
+  id         String   @id @default(uuid())
+  sender_id  String
+  sender     User     @relation("MessageSent", fields: [sender_id], references: [id])
+  receiver_id String
+  receiver   User     @relation("MessageReceived", fields: [receiver_id], references: [id])
+  content    String
+  sent_at    DateTime @default(now())
+  is_read    Boolean  @default(false)
+}
+
+model Attendee {
+  id         String   @id @default(uuid())
+  event_id   String
+  event      Event    @relation(fields: [event_id], references: [id])
+  user_id    String
+  user       User     @relation(fields: [user_id], references: [id])
+  status     AttendanceStatus
+  created_at DateTime @default(now())
+}
+
+enum PostType {
+  GENERAL
+  JOB
+  SUCCESS_STORY
+  EVENT
+}
+
+enum JobType {
+  FULL_TIME
+  PART_TIME
+  INTERNSHIP
+  CONTRACT
+}
+
+enum Role {
+  admin
+  alumni
+  student
+}
+
+enum AttendanceStatus {
+  going
+  interested
+  not_going
+}
