@@ -1,14 +1,22 @@
 import prisma from "@/lib/prisma";
 import { NextRequest, NextResponse } from "next/server";
+import { authorizeRoles } from "@/lib/middleware/authMiddleware";
 
 export async function POST(req: NextRequest) {
+  const userOrResponse = await authorizeRoles(['admin', 'alumni'])(req);
+
+  if (userOrResponse instanceof NextResponse) {
+    return userOrResponse; 
+  }
+
+  const { user } = userOrResponse;
+
   try {
     const body = await req.json();
     const { title, content, achievement, date } = body;
-    const created_by = req.headers.get("userId"); // Assuming userId is passed in headers or modify as per your authentication setup
 
-    if (!created_by) {
-      return new NextResponse("User is not authenticated", { status: 401 });
+    if (!title || !content || !achievement || !date) {
+      return new NextResponse("All fields are required", { status: 400 });
     }
 
     const successStory = await prisma.post.create({
@@ -16,8 +24,8 @@ export async function POST(req: NextRequest) {
         title,
         content,
         achievement,
-        date,
-        created_by,
+        date: new Date(date), 
+        created_by: user.userId, 
         post_type: "SUCCESS_STORY",
       },
     });

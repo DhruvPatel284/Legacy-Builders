@@ -1,12 +1,16 @@
-import { NextResponse } from "next/server";
-import prisma from "@/lib/prisma";
+import { NextRequest, NextResponse } from 'next/server';
+import prisma from '@/lib/prisma';
+import { authorizeRoles } from '@/lib/middleware/authMiddleware';
 
-// Define the POST method for creating an event
-export async function POST(req: Request) {
+export async function POST(req: NextRequest) {
+  const userOrResponse = await authorizeRoles(['alumni'])(req);
+
+  if (userOrResponse instanceof NextResponse) {
+    return userOrResponse; 
+  }
+
+  const { user } = userOrResponse;
   const { title, description, date, location } = await req.json();
-
-  // Assuming you have middleware or some method to get the authenticated user
-  const userId = (req as any).user?.userId; // Adjust if using different middleware for authentication
 
   if (!title || !description || !date || !location) {
     return new NextResponse("All fields are required", { status: 400 });
@@ -19,18 +23,16 @@ export async function POST(req: Request) {
         description,
         date: new Date(date),
         location,
-        creatorId: userId, // Set the creatorId to the authenticated user's ID
+        creatorId: user.userId,
       },
     });
 
-    // Return success response with 201 status code
     return NextResponse.json(
       { message: "Event created successfully", event: newEvent },
       { status: 201 }
     );
   } catch (error) {
     console.error("Error creating event:", error);
-    // Return error response with 500 status code
     return new NextResponse("Internal Error", { status: 500 });
   }
 }
