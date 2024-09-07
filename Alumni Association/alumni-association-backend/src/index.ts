@@ -26,3 +26,5 @@ app.use("/api/v1/alumni-directory",alumniDirectoryRouter);
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
+
+export default app;
