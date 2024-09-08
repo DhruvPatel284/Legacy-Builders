@@ -42,7 +42,15 @@
 // export default EventCard;
 
 // components/EventCard.tsx
-const EventCard = ({ event }:{event:any}) => {
+interface event{
+  id:number,
+   title:string,
+   description:string,
+   image:string,
+   registrationLink:string,
+   viewMoreLink:string
+}
+const EventCard = ({ event }:{event:event}) => {
     return (
         <div className="bg-white border-gray-300 shadow-md rounded overflow-hidden flex flex-col md:flex-row w-full md:w-[calc(94%_-_12px)]">
         <img

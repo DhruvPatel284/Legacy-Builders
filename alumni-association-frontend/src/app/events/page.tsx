@@ -1,6 +1,6 @@
 "use client"
 import EventPage from "@/components/events/EventPage";
-import { useState,useEffect } from "react";
+
 
 export default function events(){
 

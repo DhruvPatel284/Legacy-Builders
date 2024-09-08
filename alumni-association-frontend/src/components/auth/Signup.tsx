@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { BACKEND_URL } from "@/lib/config";
-import { toast, Toaster } from "react-hot-toast"; 
-import { isAuthenticated } from "@/lib/config";
+import { toast } from "react-hot-toast"; 
 
 export default function Signup() {
   const [inputs, setInputs] = useState({
@@ -43,7 +42,7 @@ export default function Signup() {
           <div className="px-10">
             <div className="text-3xl font-extrabold">Create an account</div>
             <div className="text-slate-500 mt-3">
-              Already have an account?
+              Already have an account
               <Link href="/signin" className="pl-2 underline">
                 Sign in
               </Link>

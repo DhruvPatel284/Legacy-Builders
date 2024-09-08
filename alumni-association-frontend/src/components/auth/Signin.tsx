@@ -3,7 +3,7 @@ import { useState, useRef } from 'react';
 import Link from 'next/link';
 import { BACKEND_URL } from '@/lib/config';
 import axios from 'axios';
-import { toast, Toaster } from "react-hot-toast"; 
+import { toast } from "react-hot-toast"; 
 import { useRouter } from 'next/navigation';
 
 export default function Signin() {
@@ -42,7 +42,7 @@ export default function Signin() {
           <div className="px-10">
             <div className="text-3xl font-extrabold">Sign In</div>
             <div className="text-slate-500 mt-3">
-              Don't have an account?
+              Dont have an account
               <Link href="/signup" className="pl-2 underline">
                 Sign up
               </Link>
