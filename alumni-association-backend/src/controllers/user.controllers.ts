@@ -4,7 +4,7 @@ import bcrypt from "bcryptjs";
 import prisma from "../utils/prisma";
 
 
-const registerUser =async (req: Request, res: Response) =>{
+const registerUser = async (req: Request, res: Response) =>{
     const { email, password, username, role } = req.body; // Include role in request body
 
     if (!email && !role) {

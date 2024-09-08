@@ -1,20 +1,12 @@
 import prisma from "@/lib/prisma";
 import { NextRequest, NextResponse } from "next/server";
-import { authorizeRoles } from "@/lib/middleware/authMiddleware";
+
 
 export async function POST(req: NextRequest) {
-  // Apply middleware to check for admin and alumni roles
-  const userOrResponse = await authorizeRoles(['admin', 'alumni'])(req);
-
-  if (userOrResponse instanceof NextResponse) {
-    return userOrResponse; // If authorization fails, return the response
-  }
-
-  const { user } = userOrResponse;
 
   try {
     const body = await req.json();
-    const { title, content, company, location, salary_range, job_type } = body;
+    const { title, content, company, location, salary_range, job_type,userId } = body;
 
     if (!title || !content || !company || !location || !salary_range || !job_type) {
       return new NextResponse("All fields are required", { status: 400 });
@@ -28,7 +20,7 @@ export async function POST(req: NextRequest) {
       location,
       salary_range,
       job_type,
-      created_by: user.userId, // Use the user ID from the JWT token
+      created_by: userId, // Use the user ID from the JWT token
       post_type: "JOB",
     };
 

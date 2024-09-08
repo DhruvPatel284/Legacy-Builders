@@ -1,19 +1,11 @@
 import prisma from "@/lib/prisma";
 import { NextRequest, NextResponse } from "next/server";
-import { authorizeRoles } from "@/lib/middleware/authMiddleware";
 
 export async function POST(req: NextRequest) {
-  const userOrResponse = await authorizeRoles(['admin', 'alumni'])(req);
-
-  if (userOrResponse instanceof NextResponse) {
-    return userOrResponse; 
-  }
-
-  const { user } = userOrResponse;
-
+ 
   try {
     const body = await req.json();
-    const { title, content, achievement, date } = body;
+    const { title, content, achievement, date , userId } = body;
 
     if (!title || !content || !achievement || !date) {
       return new NextResponse("All fields are required", { status: 400 });
@@ -25,7 +17,7 @@ export async function POST(req: NextRequest) {
         content,
         achievement,
         date: new Date(date), 
-        created_by: user.userId, 
+        created_by: userId, 
         post_type: "SUCCESS_STORY",
       },
     });

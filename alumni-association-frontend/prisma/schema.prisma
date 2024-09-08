@@ -52,6 +52,7 @@ model Event {
   id          String   @id @default(uuid())
   title       String
   description String
+  image_url     String?
   date        DateTime
   location    String
   creatorId  String
