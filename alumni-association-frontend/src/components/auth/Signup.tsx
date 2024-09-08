@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { BACKEND_URL } from "@/lib/config";
 import { toast } from "react-hot-toast"; 
 
+
 export default function Signup() {
   const [inputs, setInputs] = useState({
     username: "",

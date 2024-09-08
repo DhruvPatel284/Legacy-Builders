@@ -26,7 +26,7 @@ export async function POST(req: NextRequest) {
 
     // Create the job posting
     const jobPosting = await prisma.post.create({
-        //@ts-ignore
+        //@ts-expect-error
       data: postData,
     });
 
