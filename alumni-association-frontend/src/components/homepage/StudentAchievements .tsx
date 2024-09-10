@@ -7,21 +7,21 @@ const StudentAchievements = () => {
       description:
         "A team of students won the national Math Olympiad, showcasing exceptional problem-solving skills.",
       date: "Oct 3, 2023",
-      image: "https://placehold.co/300x200",
+      image: "https://res.cloudinary.com/dhwdgfdvz/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1725933064/Image_135_xq1gje.png",
     },
     {
       title: "Science Fair",
       description:
         "Innovative projects by students were highlighted at the state Science Fair.",
       date: "Sep 28, 2023",
-      image: "https://placehold.co/300x200",
+      image: "https://res.cloudinary.com/dhwdgfdvz/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1725933680/Image_135_m89qbq.png",
     },
     {
       title: "Art Exhibition",
       description:
         "Creative artworks by students were displayed at the annual Art Exhibition.",
       date: "Sep 15, 2023",
-      image: "https://placehold.co/300x200",
+      image: "https://res.cloudinary.com/dhwdgfdvz/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1725933885/Image_135_1_iaypfw.png",
     },
   ];
 

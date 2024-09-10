@@ -6,27 +6,27 @@ const AlumniPost = () => {
       title: "New Venture",
       description: "John Doe launched a new tech startup focused on AI solutions.",
       date: "Oct 20, 2023",
-      image: "https://placehold.co/150x100",
+      image: "https://res.cloudinary.com/dhwdgfdvz/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1725934315/Image_135_2_sqwt5r.png",
     },
     {
       title: "Research Success",
       description: "Dr. Smith published groundbreaking research in renewable energy.",
       date: "Oct 18, 2023",
-      image: "https://placehold.co/150x100",
+      image: "https://res.cloudinary.com/dhwdgfdvz/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1725934238/Image_135_3_lmdgar.png",
     },
     {
       title: "Literary Award",
       description:
         "Alumni Mary Jones received a prestigious literary award for her novel.",
       date: "Oct 15, 2023",
-      image: "https://placehold.co/150x100",
+      image: "https://res.cloudinary.com/dhwdgfdvz/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1725934493/Image_135_4_nhwsip.png",
     },
     {
       title: "Community Project",
       description:
         "Team of alumni initiated a community project to support local schools.",
       date: "Oct 12, 2023",
-      image: "https://placehold.co/150x100",
+      image: "https://res.cloudinary.com/dhwdgfdvz/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1725934562/Image_135_5_rkfcwb.png",
     },
   ];
 

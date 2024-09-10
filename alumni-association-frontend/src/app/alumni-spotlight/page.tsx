@@ -1,13 +1,12 @@
 "use client"
-import Signin from "@/components/auth/Signin";
 
-export default function successTales(){
+export default function alumniSpotlight(){
 
   return (
     <div>
         <div className="flex justify-center">
             <div>
-                <Signin />
+                
             </div>
         </div>
     </div>

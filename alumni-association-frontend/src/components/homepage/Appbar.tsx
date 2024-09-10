@@ -59,7 +59,7 @@ import { isAuthenticated } from '@/lib/config';
   
           {/* Navigation Links */}
           <nav className="flex items-center space-x-6">
-            <div className={getNavLinkClass("/")}>Home</div>
+            <button onClick={() => router.push("/")} className={getNavLinkClass("/")}>Home</button>
             <button onClick={() => router.push("/events")} className={getNavLinkClass("/events")}>
               Events
             </button>

@@ -7,28 +7,28 @@ const SpecialEvents = () => {
       description:
         "Join us for the annual alumni gathering to reconnect and network with fellow graduates.",
       date: "April 15, 2024",
-      image: "https://placehold.co/300x200",
+      image: "https://res.cloudinary.com/dhwdgfdvz/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1725934636/Image_20_qrzfsk.png",
     },
     {
       title: "Innovation Fair",
       description:
         "Showcase your latest projects and innovations at the annual fair.",
       date: "March 20, 2024",
-      image: "https://placehold.co/300x200",
+      image: "https://res.cloudinary.com/dhwdgfdvz/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1725934725/Image_20_1_duacuf.png",
     },
     {
       title: "Career Seminar",
       description:
         "Gain insights and advice from industry leaders at our career-focused seminar.",
       date: "May 10, 2024",
-      image: "https://placehold.co/300x200",
+      image: "https://res.cloudinary.com/dhwdgfdvz/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1725934809/Image_20_2_zloi7r.png",
     },
     {
       title: "Casual Meetup",
       description:
         "Join a casual meetup to unwind and share experiences with fellow alumni.",
       date: "February 27, 2024",
-      image: "https://placehold.co/300x200",
+      image: "https://res.cloudinary.com/dhwdgfdvz/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1725934907/Image_20_3_co7nha.png",
     },
   ];
 

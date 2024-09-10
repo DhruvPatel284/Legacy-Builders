@@ -7,7 +7,7 @@ const events = [
     id:1,
     title: "Annual Alumni Meet",
     description: "Reconnect with your peers and enjoy a day of networking and reminiscing.",
-    image: "https://placehold.co/300x200",
+    image: "https://res.cloudinary.com/dhwdgfdvz/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1725934636/Image_20_qrzfsk.png",
     registrationLink: "#",
     viewMoreLink: "#"
   },
@@ -15,7 +15,7 @@ const events = [
     id:2,
     title: "Innovation Fair",
     description: "Showcase your latest projects and innovations at the annual fair.",
-    image: "https://placehold.co/300x200",
+    image: "https://res.cloudinary.com/dhwdgfdvz/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1725934725/Image_20_1_duacuf.png",
     registrationLink: "#",
     viewMoreLink: "#"
   },
@@ -23,14 +23,14 @@ const events = [
     id:3,
     title: "Career Seminar",
     description: "Gain insights and advice from industry leaders at our career-focused seminar.",
-    image: "https://placehold.co/300x200",
+    image: "https://res.cloudinary.com/dhwdgfdvz/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1725933680/Image_135_m89qbq.png",
     registrationLink: "#",
     viewMoreLink: "#"
   },
   {  id:4,
     title: "Casual Meetup",
     description: "Join a casual meetup to unwind and share experiences with fellow alumni.",
-    image: "https://placehold.co/300x200",
+    image: "https://res.cloudinary.com/dhwdgfdvz/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1725933885/Image_135_1_iaypfw.png",
     registrationLink: "#",
     viewMoreLink: "#"
   }
