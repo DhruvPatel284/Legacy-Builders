@@ -7,7 +7,7 @@ const Footer = () => {
             {/* Footer Text */}
             <p className="text-gray-500 text-sm">
                 Made with <span className="text-purple-600">❤️</span> by{" "}
-                <span className="text-purple-600">Visily</span>
+                <span className="text-purple-600">Legacy Builders</span>
             </p>
 
             {/* Footer Buttons */}
